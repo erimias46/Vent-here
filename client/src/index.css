@@ -1,0 +1,31 @@
+.back{
+    border: 2px solid;
+    background-image: url(../src/assets/back.jpg);
+}
+.container{
+    border: 2px solid;
+    display: flex;
+    margin: 20%;
+    background-color: antiquewhite;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    align-items: center;
+}
+.logo{
+    margin: 20px;
+}
+.header{
+    font-size: 28px;
+    font-family: cursive;
+  
+    
+    text-align: center;
+}
+.links{
+    display: flex;
+    flex-direction:row ;
+    justify-content: end;
+    gap: 8px;
+}

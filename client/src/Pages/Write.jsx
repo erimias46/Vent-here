@@ -3,11 +3,13 @@ import {
     Card, CardHeader, Heading, Text, CardFooter, CardBody,
     Button, Editable, EditableTextarea,EditablePreview,EditableInput
 } from '@chakra-ui/react';
+import { useToast } from "@chakra-ui/react";
 
 const Write = () => {
     const [data, setData] = useState()
     const tags = ['relationship', 'family', 'teens']
     const [selected, setSelected] = useState([])
+     const toast = useToast();
    
     
     const selecte = (idx) => {
@@ -47,12 +49,33 @@ const Write = () => {
             />
           </Editable>
         </CardBody>
-              <CardFooter>{
-                  tags.map((tag,idx) => {
-                      return (<Button key={idx} onClick={() => { selecte(idx) }}>{tag}</Button>)
-              })}
-                
-          <Button>Vent</Button>
+        <CardFooter>
+          {tags.map((tag, idx) => {
+            return (
+              <Button
+                key={idx}
+                onClick={() => {
+                  selecte(idx);
+                }}
+              >
+                {tag}
+              </Button>
+            );
+          })}
+
+          <Button
+            onClick={() => {
+             toast({
+               title: "Account created.",
+               description: "We've created your account for you.",
+               status: "success",
+               duration: 9000,
+               isClosable: true,
+             });
+            }}
+          >
+            Vent
+          </Button>
         </CardFooter>
       </Card>
     </div>
