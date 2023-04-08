@@ -24,9 +24,14 @@ app.listen(3001, () => {
 })
   
 app.post('/posts',async (req, res) => {
-    const vent = req.body.body;
+  const vent = req.body.body;
+  const title = req.body.title
+  const tags=req.body.tags
     const post = new Post({
       body: vent,
+      title: title,
+      tags:tags
+      
     });
     try {
       await post.save();

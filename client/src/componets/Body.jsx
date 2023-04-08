@@ -18,30 +18,42 @@ const Body = () => {
     },[setPosts])
   return (
     <div>
-      
       <SimpleGrid
+      
         spacing={4}
-        templateColumns="repeat(auto-fill, minmax(200px, 1fr))">
+        templateColumns="repeat(auto-fill, minmax(400px, 1fr))"
+      >
         {posts.map((post) => {
 
+          const date = new Date(post.date);
+          const formattedDate = date.toLocaleString();
+          console.log(formattedDate);
           return (
-            <Card bg={'Grey-50'} key={post._id}>
-            <CardHeader>
-              <Heading size="md"> Title</Heading>
-            </CardHeader>
-            <CardBody>
-              <Text>{post.body}</Text>
-            </CardBody>
-            <CardFooter>
-              <Button>View here</Button>
-            </CardFooter>
-          </Card>)
-          
-       
-         
-       })}
-        
-        
+            <Card m={2} bg={"cyan.800"} key={post._id}>
+              <CardHeader
+                flex={1}
+                style={{
+                  flex: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Heading size="xl"> {post.title}</Heading>
+              </CardHeader>
+              <CardBody>
+                <Text size="md" color={"white"}>
+                  {post.body}
+                </Text>
+              </CardBody>
+              <CardFooter flexDirection={"column"} alignItems={"center"}>
+                <Button>Comments</Button>
+                <Text fontSize="sm" marginTop={5}>
+                  Date : {formattedDate}
+                </Text>
+              </CardFooter>
+            </Card>
+          );
+        })}
       </SimpleGrid>
     </div>
   );

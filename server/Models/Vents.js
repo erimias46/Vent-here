@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 
 
 const ventsSchema = mongoose.Schema({
+    title: {
+        type: String,
+        required:true,
+    },
     body: {
         type: String,
         required:true
@@ -10,6 +14,9 @@ const ventsSchema = mongoose.Schema({
     date: {
         type: Date,
         default:Date.now
+    },
+    tags: {
+        type:Array
     }
     
 })

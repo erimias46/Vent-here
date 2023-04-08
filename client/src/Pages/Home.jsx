@@ -6,10 +6,9 @@ import Body from "../componets/Body";
 
 const Home = () => {
   return (
-    <div>
-      
+    <div style={{ backgroundColor: "#070D2D" }}>
       <Body />
-      <Footer />
+      
     </div>
   );
 }
